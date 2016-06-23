@@ -43,7 +43,15 @@ function percentOfSmallest (percentage, imageSize) {
 }
 
 startButton.on('select', function() {
-  textView.set('text', percentOfSmallest(25, 200));
+  textView.set('text', getCoord());
 });
+
+function getCoords () {
+  window.plugins.GPSLocator.getLocation(function(result) {
+    return JSON.stringify(result); //result[0]:latitude,result[1]:longitude.
+  }, function(e) {
+    return JSON.stringify(e); //Error Message
+  });
+}
 
 page.open();
