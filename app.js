@@ -43,7 +43,7 @@ function percentOfSmallest (percentage, imageSize) {
 }
 
 startButton.on('select', function() {
-  textView.set('text', getCoord());
+  textView.set('text', getCoords());
 });
 
 function getCoords () {
