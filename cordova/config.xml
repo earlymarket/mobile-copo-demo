@@ -7,5 +7,5 @@
   <author email="support@coposition.com">
     Earlymarket
   </author>
-  <gap:plugin name="https://github.com/Moussawi7/Cordova-GPSLocator" />
+  <plugin name="https://github.com/Moussawi7/Cordova-GPSLocator" />
 </widget>
