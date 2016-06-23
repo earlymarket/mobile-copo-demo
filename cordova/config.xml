@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="coposition" version="0.1.0">
+  <name>Coposition</name>
+  <description>
+    A basic geolocation logger
+  </description>
+  <author email="support@coposition.com">
+    Earlymarket
+  </author>
+</widget>
