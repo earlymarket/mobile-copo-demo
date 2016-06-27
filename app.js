@@ -1,6 +1,5 @@
 tabris.ui.set("toolbarVisible", false);
 var MARGIN = 20;
-var HARDCODED_UUID = '94f62baa-4b6d-437e-9f2c-1537bcedb02a';
 var timerId;
 
 var page = new tabris.Page({
@@ -75,10 +74,10 @@ function getUUID() {
 }
 
 function startTimer(seconds) {
-  timerId = setInterval(function () {
-    checkin();
-  }, 1000 * seconds)
+  timerId = setInterval(checkin, 1000 * seconds)
 };
+
+var HARDCODED_UUID = '94f62baa-4b6d-437e-9f2c-1537bcedb02a';
 
 var checkinHeader = new Headers({
   'X-API-Key': 'd9b266cb-7fd6-420b-91e9-921bd8a5b53d',
@@ -91,17 +90,15 @@ var checkinInit = {
   method: 'POST',
   headers: checkinHeader,
   mode: 'cors',
-  body: {
-    lat: getCoords()[0],
-    lng: getCoords()[1]
-  }
+  body: JSON.stringify({
+          lat: 51.506104,
+          lng: -0.2117435
+        })
 }
-
-var checkinRequest = new Request('https://api.coposition.com/v1/checkins', checkinInit);
 
 function checkin() {
   console.log('Checking in now! ' + Date.now());
-  fetch(checkinRequest.clone, checkinInit)
+  fetch('https://api.coposition.com/v1/checkins', checkinInit)
   .then(function (response) {
     return response.json();
   })
